@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="apple-touch-icon" sizes="120x120" href="./style/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./style/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./style/favicon-16x16.png">
+    <link rel="manifest" href="./style/site.webmanifest">
+    <link rel="mask-icon" href="./style/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+</head>
+
+<body>
+    <div class="modal-container" id="add-modal">
+        <!-- ! add visible class to be visible ! -->
+        <div class="modal-content">
+            <!-- ! edit user content ! -->
+            <h1 class="modal-title">Add Projects</h1>
+            <form action="" class="edit-user-form" onsubmit="event.preventDefault()">
+                <div class="input-field">
+                    <input type="text" class="ProjectName"  placeholder="Project Name" spellcheck="false">
+                </div>
+                <div class="input-field">
+                    <input type="text" class="ProjectNumber"  placeholder="Project Number" spellcheck="false">
+                </div>
+                <div class="input-field">
+                    <input type="text" class="ProjectLink"  placeholder="Project Link" spellcheck="false">
+                </div>
+                <div class="status">
+                    <select class="statusOption" name="" id="">
+                        <option value="Finished">Finished</option>
+                        <option value="NotFinished">NotFinished</option>
+                        <option value="Cancel">Cancel</option>
+                    </select>
+                </div>
+
+                <button class="accept-btn" onclick="AddProjecter()">Add Project</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    <div class="modal-container" id="edit-modal">
+        <!-- ! add visible class to be visible ! -->
+        <div class="modal-content">
+            <!-- ! edit user content ! -->
+            <h1 class="modal-title">Edit Projects</h1>
+            <form action="" class="edit-user-form" onsubmit="event.preventDefault()">
+                <div class="input-field">
+                    <input type="text" class="ProjectNameToEdit"  placeholder="Project Name" spellcheck="false">
+                </div>
+                <div class="input-field">
+                    <input type="text" class="ProjectNumberToEdit"  placeholder="Project Number" spellcheck="false">
+                </div>
+                <div class="input-field">
+                    <input type="text" class="ProjectLinkToEdit"  placeholder="Project Link" spellcheck="false">
+                </div>
+                <div class="status">
+                    <select class="statusOptionToEdit" name="" id="">
+                        <option value="Finished">Finished</option>
+                        <option value="NotFinished">NotFinished</option>
+                        <option value="Cancel">Cancel</option>
+                    </select>
+                </div>
+
+                <button class="accept-btn" onclick="EditProjectBtn()">Add Project</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    
+    <div class="datatable-container">
+        <!-- ======= Header tools ======= -->
+        <div class="header-tools">
+            <div class="tools">
+                <ul>
+                    <li>
+                        <button>
+                            <i class="material-icons addProject">add_circle</i>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="material-icons editProject">edit</i>
+                        </button>
+                    </li>
+                    <li>
+                        <button>
+                            <i class="material-icons">delete</i>
+                        </button>
+                    </li>
+                    <li>
+                        <span style="margin-right:30px; margin-left: 50px;" class="availableHeader">Finished</span>
+                    </li>
+                    <li>
+                        <span class="awayHeader">Not Finished</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input type="search" class="search-input" placeholder="Search..." />
+            </div>
+        </div>
+        <!-- ======= Table ======= -->
+        <table class="datatable">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Number</th>
+                    <th>Project Name</th>
+                    <th>Status</th>
+
+                    <th>Link</th>
+                </tr>
+            </thead>
+
+            <tbody class="tbody">
+
+            </tbody>
+        </table>
+
+        <!-- ======= Footer tools ======= -->
+        <div class="footer-tools">
+            <div class="list-items">
+                Show
+                <select name="n-entries" id="n-entries" class="n-entries">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+                </select>
+                entries
+            </div>
+
+            <div class="pages">
+                <ul class="listpages">
+                    <li><span class="active">1</span></li>
+                    <li><button>2</button></li>
+                    <li><button>3</button></li>
+                    <li><button>4</button></li>
+                    <li><span>...</span></li>
+                    <li><button>9</button></li>
+                    <li><button>10</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./src.js"></script>
+</body>
+
+</html>
