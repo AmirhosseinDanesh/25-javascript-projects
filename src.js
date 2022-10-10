@@ -25,6 +25,10 @@ let ProjectLinkToEdit = $.querySelector(".ProjectLinkToEdit")
 let editModal = $.querySelector("#edit-modal")
 let editProject = $.querySelector(".editProject")
 
+// Delete Project 
+let deleteProjectBtn = $.querySelector(".deleteProject")
+let modalDelete = $.querySelector("#delete-modal")
+
 
 
 function getAllUser(){
@@ -138,6 +142,25 @@ function EditProjectBtn(){
     })
 }
 
+// Delete
+
+let OpenDeleteModal = ()=>modalDelete.classList.add("visible")
+
+let closeDeleteModal = ()=>modalDelete.classList.remove("visible")
+
+function deleteUser(){
+    let checked = document.querySelector("input[type=radio]:checked");
+    let projectID = checked.id
+    fetch(`https://projects-111a7-default-rtdb.firebaseio.com/Projects/${projectID}.json`,{
+        method:"DELETE",
+    })
+    .then(res=>{
+        closeDeleteModal()
+        tBody.innerHTML=""
+        getAllUser()
+    })
+}
+
 
 
 
@@ -146,7 +169,7 @@ function EditProjectBtn(){
 window.addEventListener("load", getAllUser())
 AddProject.addEventListener("click", OpenModal)
 editProject.addEventListener("click" , OpenEditModal)
-
+deleteProjectBtn.addEventListener("click" , OpenDeleteModal)
 
 
 
