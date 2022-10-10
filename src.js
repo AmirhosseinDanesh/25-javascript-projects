@@ -47,8 +47,8 @@ function getAllUser(){
                     </td>
                     <td class="ProjectNumber">${pr[1].ProjectNumber}</td>
                     <td class="projectName">${pr[1].ProjectName}</td>
-                    <td><span class="${pr[1].ProjectStatus}"></span></td>
-                    <td>
+                    <td class="ProjectStatus"><span class="${pr[1].ProjectStatus}"></span></td>
+                    <td class="projectLink">
                         <a target="_blank" class="list-item" href="https://${pr[1].ProjectLink}">view</a>
                     </td>
             </tr>
@@ -100,6 +100,13 @@ function AddProjecter(){
 let OpenEditModal = ()=>{
     if(document.querySelector("input[type=radio]:checked")){
         editModal.classList.add("visible")
+        let checked = document.querySelector("input[type=radio]:checked");
+        let parent = checked.parentElement.parentElement
+        ProjectNameToEdit.value = parent.childNodes[5].innerHTML
+        ProjectNumberToEdit.value = parent.childNodes[3].innerHTML
+        ProjectLinkToEdit.value = parent.childNodes[9].childNodes[1].href
+        statusOptionToEdit.value = parent.childNodes[7].childNodes[0].classList[0]        
+
     }
 }
 
@@ -115,7 +122,7 @@ function EditProjectBtn(){
         ProjectName : ProjectNameToEdit.value ,    
         ProjectNumber : ProjectNumberToEdit.value,
         ProjectStatus : statusOptionToEdit.value,
-        ProjectLink:ProjectLinkToEdit.value,
+        ProjectLink : ProjectLinkToEdit.value,
     }
     fetch(`https://projects-111a7-default-rtdb.firebaseio.com/Projects/${projectID}.json`,{
         method:"PUT",
