@@ -348,7 +348,6 @@
         <table class="datatable">
             <thead>
                 <tr>
-                    <th>Select</th>
                     <th>Number</th>
                     <th>Project Name</th>
                     <th>Status</th>
@@ -364,7 +363,7 @@
 
         <!-- ======= Footer tools ======= -->
         <div class="footer-tools">
-            <div class="list-items">
+            <!-- <div class="list-items">
                 Show
                 <select name="n-entries" id="n-entries" class="n-entries">
                     <option value="5">5</option>
@@ -372,9 +371,9 @@
                     <option value="15">15</option>
                 </select>
                 entries
-            </div>
+            </div> -->
 
-            <div class="pages">
+            <!-- <div class="pages">
                 <ul class="listpages">
                     <li><span class="active">1</span></li>
                     <li><button>2</button></li>
@@ -384,7 +383,7 @@
                     <li><button>9</button></li>
                     <li><button>10</button></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -412,14 +411,12 @@
                     Project.forEach(pr => {
                         tBody.insertAdjacentHTML("afterbegin", `
                 <tr>
-                    <td>
-                        <input class="selectBtn" type="radio" name="pr" id="${pr[0]}" />
-                    </td>
+                    
                     <td class="ProjectNumber">${pr[1].ProjectNumber}</td>
                     <td class="projectName">${pr[1].ProjectName}</td>
                     <td class="ProjectStatus"><span class="${pr[1].ProjectStatus}"></span></td>
                     <td class="projectLink">
-                        <a target="_blank" class="list-item" href="https://${pr[1].ProjectLink}">view</a>
+                        <a target="_blank" class="list-item" href="${pr[1].ProjectLink}">view</a>
                     </td>
             </tr>
             `)
